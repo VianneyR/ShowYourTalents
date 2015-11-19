@@ -1,0 +1,193 @@
+/*---------------------------------------------
+ --------------------RESET----------------------
+ ---------------------------------------------*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+*{
+	box-sizing : border-box;
+}
+/*------------------------------------------------------------------
+ _______________________________FONT-FACE____________________________
+ ____________________________________________________________________*/
+ 
+/*-------------------------------------------------------------------
+ _______________________________GENERAL_______________________________
+ ______________________________________________________________________*/
+body {
+	background-color: #FFF;
+	font-family: Arial, Helvetica, sans-serif;
+	vertical-align: top;
+}
+header {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.87);
+}
+footer ul {
+	text-align: center;
+}
+footer {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	display: block;
+	height: 30px;
+	background-color: rgba(0,0,0,0.87);
+	z-index: 1;
+}
+header nav {
+	display: inline-block;
+	padding: 20px 10px;
+}
+header nav li {
+	display: inline-block;
+	margin-left: 20px;
+}
+header nav li.active a {
+	color: #FFF;
+	background-color: #F64B1C;
+}
+header nav li a {
+	color: #FFF;
+	text-decoration: none;
+}
+header nav li a:hover {
+	color: #F64B1C;
+}
+header nav li.active a:hover {
+	color: #FFF;
+	cursor: default;
+}
+h1 {
+	display: inline-block;
+	padding: 20px 10px;
+	margin: 0;
+	color: #F64B1C;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight : 800;
+}
+header small {
+	padding: 20px 10px;
+	float: right;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.8em;
+	color: rgba(255,255,255,0.5)
+}
+#wrapper {
+
+}
+#slider-wrap {
+	overflow: hidden;
+}
+#slider-content.slide{
+ -webkit-transition: margin-left ease-in-out 0.5s;
+         transition: margin-left ease-in-out 0.5s;
+}
+#slider-content li {
+	position: relative;
+	display: inline-block;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+#slider-content li img {
+	position: absolute;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	border: solid 1px #333;
+	max-height : 90%;
+}
+#slider-control {
+	position: absolute;
+	top: 60px;
+	right: 5px;
+}
+#wait {
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	top: 50%;
+	left: 50%;
+	margin-top: -75px;
+	margin-left: -75px;
+}
+li.count {
+	position: relative;
+	z-index: 2;
+	display: inline-block;
+	padding: 4px 0;
+	width: 20px;
+	margin: 5px;
+	border-radius: 10px;
+	font-size: 0.8em;
+	vertical-align: middle;
+	color: #F64B1C;
+}
+footer ul li.active {
+	background-color: #F64B1C;
+	color: #FFF;
+}
+.bt-slider-control {
+	border: none;
+	height: 50px;
+	width: 50px;
+	background-color: #CCC;
+	cursor: pointer;
+}
+.bt-slider-control:hover {
+	background-color: #999;
+}
+#title-pict {
+	position: absolute;
+	color: #FFF;
+	font-size: 0.8em;
+	height: 20px;
+	padding: 7px;
+}
+/*-------------------------------------------------------------------
+ _______________________________TEST_______________________________
+ ______________________________________________________________________*/
+#test{
+	position : absolute;
+	top : 50%;
+	left : 2em;
+	color : #ff0000;
+}
