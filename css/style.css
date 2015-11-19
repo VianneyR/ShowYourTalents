@@ -120,7 +120,7 @@ header small {
 #slider-wrap {
 	overflow: hidden;
 }
-#slider-content.slide{
+#slider-content.anim-slide{
  -webkit-transition: margin-left ease-in-out 0.5s;
          transition: margin-left ease-in-out 0.5s;
 }
