@@ -35,9 +35,6 @@ img {
 	max-width: 100%;
 	max-height: 100%;
 }
-*{
-	box-sizing : border-box;
-}
 /*------------------------------------------------------------------
  _______________________________FONT-FACE____________________________
  ____________________________________________________________________*/
@@ -72,44 +69,53 @@ footer {
 }
 header nav {
 	display: inline-block;
-	padding: 20px 10px;
+	padding: 0 10px;
 }
 header nav li {
 	display: inline-block;
 	margin-left: 20px;
 }
+header nav li a {
+	display : block;
+	color: #FFF;
+	text-decoration: none;
+	padding : 1em 0.5em 0.75em 0.5em;
+	height : 100%;
+	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
 header nav li.active a {
 	color: #FFF;
 	background-color: #F64B1C;
-}
-header nav li a {
-	color: #FFF;
-	text-decoration: none;
+	padding-bottom : 1em;
 }
 header nav li a:hover {
 	color: #F64B1C;
+	border-bottom : solid 0.3em #F64B1C;
 }
 header nav li.active a:hover {
 	color: #FFF;
 	cursor: default;
+	border : none;
 }
 h1 {
 	display: inline-block;
-	padding: 20px 10px;
+	padding : 1em 0.5em;
 	margin: 0;
 	color: #F64B1C;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight : 800;
 }
 header small {
-	padding: 20px 10px;
+	padding: 1.25em 1em;
 	float: right;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 0.8em;
 	color: rgba(255,255,255,0.5)
 }
 #wrapper {
-
+	position : relative;
 }
 #slider-wrap {
 	overflow: hidden;
@@ -133,12 +139,15 @@ header small {
 	top: 50%;
 	left: 50%;
 	border: solid 1px #333;
-	max-height : 90%;
 }
 #slider-control {
 	position: absolute;
-	top: 60px;
-	right: 5px;
+	top: 0.5em;
+	right: 0.5em;
+	opacity : 0.5;
+}
+#slider-control:hover {
+	opacity : 1;
 }
 #wait {
 	position: absolute;
