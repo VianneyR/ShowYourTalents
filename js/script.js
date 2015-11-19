@@ -65,11 +65,11 @@ function sliderControl() {
 	});
 
 	function positionOnResize() {
-		$("slider-content").removeClass("slide");
+		$("#slider-content").removeClass("slide");
 		var resizedLiWidth = $("#slider-content li").width();
 		var resizedOffset = -(i * resizedLiWidth);
 		$("#slider-content").css("margin-left", resizedOffset);
-		$("slider-content").addClass("slide");
+		$("#slider-content").addClass("slide");
 	}
 	$(window).resize(function(){
 		positionOnResize();
