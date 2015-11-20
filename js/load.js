@@ -7,6 +7,7 @@ $(window).load(function(){
 	sliderPosition();
 	sliderCounterInit();
 	sliderControl();
+	quickAccess();
 });
 
 $(window).resize(function(){

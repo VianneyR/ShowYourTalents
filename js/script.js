@@ -17,9 +17,23 @@ function sliderPosition() {
 	var scWidth = (sLength + 1) * wWidth;
 
 	$("#slider-content").css("width", scWidth);
-
 }
 
+function titlePicture() {
+	var pict_title = $("#slider-content li").eq(counter).find("img").attr("alt");
+	$("#title-pict").text(pict_title);
+}
+function positionOnResize() {
+		$("#slider-content").removeClass("anim-slide");
+
+		var resizedLiWidth = $("#slider-content li").width();
+		var resizedOffset = -(counter * resizedLiWidth);
+
+		$("#slider-content").css("margin-left", resizedOffset);
+		$("#slider-content").addClass("anim-slide");
+		var liActive = $("li.count").eq(counter);
+		$(liActive).addClass("active");
+	}
 function sliderControl() {
 
 	counter = 0;
@@ -37,9 +51,8 @@ function sliderControl() {
 		var offset = -(counter * liWidth);
 		$("#slider-content").css("margin-left", offset);
 
-		var pict_title = $("#slider-content li").eq(counter).find("img").attr("alt");
-		$("#title-pict").text(pict_title);
-
+		titlePicture();
+		
 		var liActive = $("li.count").eq(counter);
 		$(liActive).addClass("active");
 	});
@@ -57,23 +70,13 @@ function sliderControl() {
 		var offset = -(counter * liWidth);
 		$("#slider-content").css("margin-left", offset);
 
-		var pict_title = $("#slider-content li").eq(counter).find("img").attr("alt");
-		$("#title-pict").text(pict_title);
-
+		titlePicture();
+		
 		var liActive = $("li.count").eq(counter);
 		$(liActive).addClass("active");
 	});
 
-	function positionOnResize() {
-		$("#slider-content").removeClass("anim-slide");
-		
-		var resizedLiWidth = $("#slider-content li").width();
-		var resizedOffset = -(counter * resizedLiWidth);
-		
-		$("#slider-content").css("margin-left", resizedOffset);
-		$("#slider-content").addClass("anim-slide");
-	}
-	$(window).resize(function(){
+	$(window).resize(function() {
 		positionOnResize();
 		positionOnResize();
 	});
@@ -86,6 +89,26 @@ function sliderCounterInit() {
 	}
 	$("footer ul li:first-child").addClass("active");
 	$("#title-pict").text($("#slider-content li:first-child").find("img").attr("alt"));
+}
+
+function quickAccess(){
+	$("li.count button").click(function(){
+		var buttonID = $(this).attr("id");
+		var newCounter = buttonID.substr(5);
+		
+		counter = newCounter-1;
+		
+		var liWidth = $("#slider-content li").width();
+		var newOffset = -(counter * liWidth);
+
+		$("#slider-content").css("margin-left", newOffset);
+		
+		$("li.count.active").removeClass("active");
+		
+		$(this).closest("li.count").addClass("active");
+		
+		titlePicture();
+	});
 }
 
 function preload1() {

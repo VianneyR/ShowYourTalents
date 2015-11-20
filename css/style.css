@@ -177,13 +177,13 @@ li.count button {
 	cursor: pointer;
 }
 li.count:hover {
-	background-color: rgba(0,0,0,1);
+	background-color: #a73a0c;
+}
+li.count:hover button{
+	color : #FFFFFF;
 }
 footer ul li.count.active {
 	background-color: #F64B1C;
-}
-footer ul li.count.active:hover {
-	background-color: #a73a0c;
 }
 footer ul li.count.active button {
 	color: #FFF;
