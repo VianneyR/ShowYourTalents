@@ -38,7 +38,7 @@ img {
 /*------------------------------------------------------------------
  _______________________________FONT-FACE____________________________
  ____________________________________________________________________*/
- 
+
 /*-------------------------------------------------------------------
  _______________________________GENERAL_______________________________
  ______________________________________________________________________*/
@@ -76,36 +76,36 @@ header nav li {
 	margin-left: 20px;
 }
 header nav li a {
-	display : block;
+	display: block;
 	color: #FFF;
 	text-decoration: none;
-	padding : 1em 0.5em 0.75em 0.5em;
-	height : 100%;
+	padding: 1em 0.5em 0.75em 0.5em;
+	height: 100%;
 	box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
 }
 header nav li.active a {
 	color: #FFF;
 	background-color: #F64B1C;
-	padding-bottom : 1em;
+	padding-bottom: 1em;
 }
 header nav li a:hover {
 	color: #F64B1C;
-	border-bottom : solid 0.3em #F64B1C;
+	border-bottom: solid 0.3em #F64B1C;
 }
 header nav li.active a:hover {
 	color: #FFF;
 	cursor: default;
-	border : none;
+	border: none;
 }
 h1 {
 	display: inline-block;
-	padding : 1em 0.5em;
+	padding: 1em 0.5em;
 	margin: 0;
 	color: #F64B1C;
 	font-family: Arial, Helvetica, sans-serif;
-	font-weight : 800;
+	font-weight: 800;
 }
 header small {
 	padding: 1.25em 1em;
@@ -115,21 +115,20 @@ header small {
 	color: rgba(255,255,255,0.5)
 }
 #wrapper {
-	position : relative;
+	position: relative;
 }
 #slider-wrap {
 	overflow: hidden;
 }
-#slider-content.anim-slide{
- -webkit-transition: margin-left ease-in-out 0.5s;
-         transition: margin-left ease-in-out 0.5s;
+#slider-content.anim-slide {
+	-webkit-transition: margin-left ease-in-out 0.5s;
+	transition: margin-left ease-in-out 0.5s;
 }
 #slider-content li {
 	position: relative;
 	display: inline-block;
 	text-align: center;
 	margin: 0;
-	padding: 0;
 }
 #slider-content li img {
 	position: absolute;
@@ -139,15 +138,17 @@ header small {
 	top: 50%;
 	left: 50%;
 	border: solid 1px #333;
+	max-height: 95%;
+	max-width: 95%;
 }
 #slider-control {
 	position: absolute;
 	top: 0.5em;
 	right: 0.5em;
-	opacity : 0.5;
+	opacity: 0.5;
 }
 #slider-control:hover {
-	opacity : 1;
+	opacity: 1;
 }
 #wait {
 	position: absolute;
@@ -162,16 +163,29 @@ li.count {
 	position: relative;
 	z-index: 2;
 	display: inline-block;
-	padding: 4px 0;
+	padding: 2px 0;
 	width: 20px;
 	margin: 5px;
 	border-radius: 10px;
 	font-size: 0.8em;
 	vertical-align: middle;
-	color: #F64B1C;
 }
-footer ul li.active {
+li.count button {
+	background-color: rgba(0,0,0,0);
+	border: none;
+	color: #F64B1C;
+	cursor: pointer;
+}
+li.count:hover {
+	background-color: rgba(0,0,0,1);
+}
+footer ul li.count.active {
 	background-color: #F64B1C;
+}
+footer ul li.count.active:hover {
+	background-color: #a73a0c;
+}
+footer ul li.count.active button {
 	color: #FFF;
 }
 .bt-slider-control {
@@ -194,9 +208,9 @@ footer ul li.active {
 /*-------------------------------------------------------------------
  _______________________________TEST_______________________________
  ______________________________________________________________________*/
-#test{
-	position : absolute;
-	top : 50%;
-	left : 2em;
-	color : #ff0000;
+#test {
+	position: absolute;
+	top: 50%;
+	left: 2em;
+	color: #ff0000;
 }
