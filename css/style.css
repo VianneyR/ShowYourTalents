@@ -179,8 +179,41 @@ li.count button {
 li.count:hover {
 	background-color: #a73a0c;
 }
-li.count:hover button{
-	color : #FFFFFF;
+li.count:hover button {
+	color: #FFFFFF;
+}
+li.count .tooltip-counter {
+	position: absolute;
+	-webkit-transform: translate(-4.75em,-100%);
+	-ms-transform: translate(-4.75em,-100%);
+	transform: translate(-4.75em,-100%);
+	top: -1em;
+	width: 10em;
+	background-color: #333;
+	padding: 0.5em;
+	display: none;
+}
+li.count .tooltip-counter:after {
+	content : "";
+	height : 0.5em;
+	width : 0.5em;
+	-ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position : absolute;
+    left : 50%;
+    margin-left : -0.25em;
+    background-color : inherit;
+    bottom : -0.25em;
+}
+li.count:hover .tooltip-counter {
+	display: block;
+}
+.tooltip-counter p {
+	color: #FFF;
+}
+.tooltip-counter .miniature {
+	max-height: 9em;
 }
 footer ul li.count.active {
 	background-color: #F64B1C;

@@ -84,8 +84,11 @@ function sliderControl() {
 
 function sliderCounterInit() {
 	var sLength = $("#slider-content li").length;
-	for ( n = 1; n <= sLength; n++) {
-		$("footer ul").append("<li class='count'><button id='count" + n + "'>" + n + "</button></li>");
+	
+	for ( n = 1; n <= sLength ; n++){
+		var tooltipPictSrc = $("#slider-content li").eq(n-1).find("img").attr("src");
+		var tooltipText = tooltipPictSrc.substr(24);
+		$("footer ul").append("<li class='count'><button id='count" + n + "'>" + n + "</button><div class='tooltip-counter'><img class='miniature' src='"+ tooltipPictSrc +"'><p>"+ tooltipText +"</p></div></li>");
 	}
 	$("footer ul li:first-child").addClass("active");
 	$("#title-pict").text($("#slider-content li:first-child").find("img").attr("alt"));
@@ -108,6 +111,12 @@ function quickAccess(){
 		$(this).closest("li.count").addClass("active");
 		
 		titlePicture();
+	});
+}
+
+function tootipsCounter(){
+	$("li.count button").mouseover(function(){
+		
 	});
 }
 
