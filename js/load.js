@@ -8,6 +8,7 @@ $(window).load(function(){
 	sliderCounterInit();
 	sliderControl();
 	quickAccess();
+	sliderParameters();
 });
 
 $(window).resize(function(){

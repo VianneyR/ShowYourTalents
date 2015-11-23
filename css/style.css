@@ -54,7 +54,7 @@ header {
 	left: 0;
 	background-color: rgba(0,0,0,0.87);
 }
-footer ul {
+footer ul#counter-container {
 	text-align: center;
 }
 footer {
@@ -145,10 +145,16 @@ header small {
 	position: absolute;
 	top: 0.5em;
 	right: 0.5em;
-	opacity: 0.5;
 }
-#slider-control:hover {
-	opacity: 1;
+#slider-control button:not(.disabled){
+	opacity : 0.5;
+}
+#slider-control button:not(.disabled):hover{
+	opacity : 1;
+}
+#slider-control button.disabled{
+	opacity : 0.2;
+	cursor : default;
 }
 #wait {
 	position: absolute;
@@ -182,6 +188,9 @@ li.count:hover {
 li.count:hover button {
 	color: #FFFFFF;
 }
+#counter-container.no-tooltips .tooltip-counter{
+	display : none;
+}
 li.count .tooltip-counter {
 	position: absolute;
 	-webkit-transform: translate(-4.75em,-100%);
@@ -212,13 +221,19 @@ li.count:hover .tooltip-counter {
 .tooltip-counter p {
 	color: #FFF;
 }
+.tooltip-counter.no-name p{
+	display : none;
+} 
 .tooltip-counter .miniature {
 	max-height: 9em;
 }
-footer ul li.count.active {
+.tooltip-counter.no-miniature .miniature {
+	display : none;
+}
+footer li.count.active {
 	background-color: #F64B1C;
 }
-footer ul li.count.active button {
+footer li.count.active button {
 	color: #FFF;
 }
 .bt-slider-control {
@@ -227,9 +242,6 @@ footer ul li.count.active button {
 	width: 50px;
 	background-color: #CCC;
 	cursor: pointer;
-}
-.bt-slider-control:hover {
-	background-color: #999;
 }
 #title-pict {
 	position: absolute;

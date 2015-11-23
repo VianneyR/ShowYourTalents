@@ -38,12 +38,24 @@ function sliderControl() {
 
 	counter = 0;
 
+	if(counter===0 && loop===false){
+		$("#slider-prev").addClass("disabled");
+	}
+	
 	$("#slider-next").click(function() {
 		var liWidth = $("#slider-content li").width();
 		var sLength = $("#slider-content li").length;
 		if (counter < sLength - 1) {
 			counter++;
 			$("li.count.active").removeClass("active");
+			if(loop===false && counter===sLength-1){
+				$("#slider-next").addClass("disabled");
+			}
+			if(counter>0){
+				$("#slider-prev").removeClass("disabled");
+			}
+		} else if(loop===false){
+			return false;
 		} else {
 			counter = 0;
 			$("li.count.active").removeClass("active");
@@ -63,6 +75,14 @@ function sliderControl() {
 		if (counter > 0) {
 			counter--;
 			$("li.count.active").removeClass("active");
+			if(loop===false && counter===0){
+				$("#slider-prev").addClass("disabled");
+			}
+			if(counter < sLength-1){
+				$("#slider-next").removeClass("disabled");
+			}
+		} else if(loop===false){
+			return false;
 		} else {
 			counter = sLength - 1;
 			$("li.count.active").removeClass("active");
@@ -88,9 +108,9 @@ function sliderCounterInit() {
 	for ( n = 1; n <= sLength ; n++){
 		var tooltipPictSrc = $("#slider-content li").eq(n-1).find("img").attr("src");
 		var tooltipText = tooltipPictSrc.substr(24);
-		$("footer ul").append("<li class='count'><button id='count" + n + "'>" + n + "</button><div class='tooltip-counter'><img class='miniature' src='"+ tooltipPictSrc +"'><p>"+ tooltipText +"</p></div></li>");
+		$("#counter-container").append("<li class='count'><button id='count" + n + "'>" + n + "</button><div class='tooltip-counter'><img class='miniature' src='"+ tooltipPictSrc +"'><p>"+ tooltipText +"</p></div></li>");
 	}
-	$("footer ul li:first-child").addClass("active");
+	$("#counter-container li:first-child").addClass("active");
 	$("#title-pict").text($("#slider-content li:first-child").find("img").attr("alt"));
 }
 
@@ -114,10 +134,22 @@ function quickAccess(){
 	});
 }
 
-function tootipsCounter(){
-	$("li.count button").mouseover(function(){
-		
-	});
+function sliderParameters(){
+	if(slide===false){
+		$("#slider-content").removeClass("anim-slide");
+	}
+	if(tooltips===false){
+		$("#counter-container").addClass("no-tooltips");
+	}
+	if(tooltipsMiniatures===false){
+		$(".tooltip-counter").addClass("no-miniature");
+	}
+	if(tooltipsName===false){
+		$(".tooltip-counter").addClass("no-name");
+	}
+	if(tooltipsMiniatures===false && tooltipsName===false){
+		$("#counter-container").addClass("no-tooltips");
+	}
 }
 
 function preload1() {
