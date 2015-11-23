@@ -1,7 +1,7 @@
 //___________Some parameters for the slider_____________
 
-slide = true;
+slide = false;
 tooltips = true;
 tooltipsMiniatures = true;
 tooltipsName = false;
-loop = false;
+loop = true;

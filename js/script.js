@@ -103,7 +103,7 @@ function sliderControl() {
 }
 
 function sliderCounterInit() {
-	var sLength = $("#slider-content li").length;
+	sLength = $("#slider-content li").length;
 	
 	for ( n = 1; n <= sLength ; n++){
 		var tooltipPictSrc = $("#slider-content li").eq(n-1).find("img").attr("src");
@@ -131,6 +131,18 @@ function quickAccess(){
 		$(this).closest("li.count").addClass("active");
 		
 		titlePicture();
+		
+		if(loop===false && counter===0){
+			$("#slider-prev").addClass("disabled");
+		}else{
+			$("#slider-prev").removeClass("disabled");
+		}
+		if(loop===false && counter===sLength-1){
+			$("#slider-next").addClass("disabled");
+		}else{
+			$("#slider-next").removeClass("disabled");
+		}
+
 	});
 }
 
