@@ -169,10 +169,6 @@ li.count {
 	position: relative;
 	z-index: 2;
 	display: inline-block;
-	padding: 2px 0;
-	width: 20px;
-	margin: 5px;
-	border-radius: 10px;
 	font-size: 0.8em;
 	vertical-align: middle;
 }
@@ -181,21 +177,32 @@ li.count button {
 	border: none;
 	color: #F64B1C;
 	cursor: pointer;
+	height :20px;
+	width : 20px;
+	margin: 5px;
+	border-radius: 10px;
 }
-li.count:hover {
+li.count button:hover {
 	background-color: #a73a0c;
 }
-li.count:hover button {
+li.count button:hover {
 	color: #FFFFFF;
+}
+li.count.active button {
+	background-color: #F64B1C;
+	color: #FFF;
+}
+li.count:hover .tooltip-counter {
+	display: block;
 }
 #counter-container.no-tooltips .tooltip-counter{
 	display : none;
 }
 li.count .tooltip-counter {
 	position: absolute;
-	-webkit-transform: translate(-4.75em,-100%);
-	-ms-transform: translate(-4.75em,-100%);
-	transform: translate(-4.75em,-100%);
+	-webkit-transform: translate(-4.3em,-100%);
+	-ms-transform: translate(-4.3em,-100%);
+	transform: translate(-4.3em,-100%);
 	top: -1em;
 	width: 10em;
 	background-color: #333;
@@ -215,9 +222,6 @@ li.count .tooltip-counter:after {
     background-color : inherit;
     bottom : -0.25em;
 }
-li.count:hover .tooltip-counter {
-	display: block;
-}
 .tooltip-counter p {
 	color: #FFF;
 }
@@ -229,12 +233,6 @@ li.count:hover .tooltip-counter {
 }
 .tooltip-counter.no-miniature .miniature {
 	display : none;
-}
-footer li.count.active {
-	background-color: #F64B1C;
-}
-footer li.count.active button {
-	color: #FFF;
 }
 .bt-slider-control {
 	border: none;

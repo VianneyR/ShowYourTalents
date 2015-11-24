@@ -108,7 +108,7 @@ function sliderCounterInit() {
 	for ( n = 1; n <= sLength ; n++){
 		var tooltipPictSrc = $("#slider-content li").eq(n-1).find("img").attr("src");
 		var tooltipText = tooltipPictSrc.substr(24);
-		$("#counter-container").append("<li class='count'><button id='count" + n + "'>" + n + "</button><div class='tooltip-counter'><img class='miniature' src='"+ tooltipPictSrc +"'><p>"+ tooltipText +"</p></div></li>");
+		$("#counter-container").append("<li class='count'><button id='count" + n + "'>" + n + "</button><div class='tooltip-counter'><img class='miniature' src='"+ tooltipPictSrc +"'/><p>"+ tooltipText +"</p></div></li>");
 	}
 	$("#counter-container li:first-child").addClass("active");
 	$("#title-pict").text($("#slider-content li:first-child").find("img").attr("alt"));

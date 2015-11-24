@@ -3,5 +3,5 @@
 slide = false;
 tooltips = true;
 tooltipsMiniatures = true;
-tooltipsName = false;
-loop = true;
+tooltipsName = true;
+loop = false;
