@@ -52,7 +52,8 @@ header {
 	position: fixed;
 	top: 0;
 	left: 0;
-	background-color: rgba(0,0,0,0.87);
+	background-color: #212121;
+	z-index: 100;
 }
 footer ul#counter-container {
 	text-align: center;
@@ -64,7 +65,7 @@ footer {
 	left: 0;
 	display: block;
 	height: 30px;
-	background-color: rgba(0,0,0,0.87);
+	background-color: #212121;
 	z-index: 1;
 }
 header nav {
@@ -113,6 +114,26 @@ header small {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 0.8em;
 	color: rgba(255,255,255,0.5)
+}
+p.menu-control{
+	display : none;
+	float : right;
+}
+.menu-control a{
+	display : block;
+	padding : 0.5em;
+	height : 2em;
+	width : 2em;
+	text-align : center;
+}
+.menu-control a img{
+	width : 0.4em;
+	height : 2em;
+	-webkit-transition: width .5s ease;
+	transition: width .5s ease;
+}
+.menu-control a:hover img{
+	width : 2em;
 }
 #wrapper {
 	position: relative;
@@ -205,7 +226,7 @@ li.count .tooltip-counter {
 	transform: translate(-4.3em,-100%);
 	top: -1em;
 	width: 10em;
-	background-color: #333;
+	background-color: #212121;
 	padding: 0.5em;
 	display: none;
 }
@@ -248,6 +269,7 @@ li.count .tooltip-counter:after {
 	height: 20px;
 	padding: 7px;
 }
+
 /*-------------------------------------------------------------------
  _______________________________TEST_______________________________
  ______________________________________________________________________*/
@@ -256,4 +278,43 @@ li.count .tooltip-counter:after {
 	top: 50%;
 	left: 2em;
 	color: #ff0000;
+}
+/*-------------------------------------------------------------------
+ _____________________________MEDIA QUERY_____________________________
+ ______________________________________________________________________*/
+@media only screen and (max-width : 800px) {
+	p.menu-control{
+		display : inline-block;
+	}
+	header nav{
+		position : absolute;
+		top : 3em;
+		right : -100%;
+		background-color : #212121;
+		border-top : solid 1px #FFF;
+		-webkit-transition: right .5s ease;
+		transition: right .5s ease;
+	}
+	header nav.open{
+		right : 0;
+	}
+	ul.navbar{
+		padding : 0.5em 0;
+	}
+	ul.navbar li{
+		display : block;
+		margin:0
+	}
+	ul.navbar li a{
+		padding : 0.5em;
+	}
+	ul.navbar li a:hover{
+		border-bottom : none;
+	}
+	ul.navbar li.active a{
+		padding-bottom : 0.5em;
+	}
+	header small{
+		float : none;
+	}
 }

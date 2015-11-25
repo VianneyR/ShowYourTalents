@@ -9,6 +9,7 @@ $(window).load(function(){
 	sliderControl();
 	quickAccess();
 	sliderParameters();
+	toggleNav();
 });
 
 $(window).resize(function(){
