@@ -12,9 +12,12 @@ $(window).load(function(){
 	sliderParameters();
 	toggleNav();
 	navigation();
+	swipeTouch();
 });
 
 $(window).resize(function(){
 	sliderPosition();
 	sliderPosition();
+	positionReset();
+	positionReset();
 });

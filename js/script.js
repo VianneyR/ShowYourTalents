@@ -69,7 +69,6 @@ function positionReset() {
 }
 
 function sliderControl() {
-
 	counter = 0;
 
 	if (counter === 0 && loop === false) {
@@ -77,64 +76,65 @@ function sliderControl() {
 	}
 
 	$("#slider-next").click(function() {
-
-		var liWidth = $("#slider-content .active li").width();
-		var sLength = $("#slider-content .active li").length;
-		if (counter < sLength - 1) {
-			counter++;
-			$("li.count.active").removeClass("active");
-			if (loop === false && counter === sLength - 1) {
-				$("#slider-next").addClass("disabled");
-			}
-			if (counter > 0) {
-				$("#slider-prev").removeClass("disabled");
-			}
-		} else if (loop === false) {
-			return false;
-		} else {
-			counter = 0;
-			$("li.count.active").removeClass("active");
-		}
-		var offset = -(counter * liWidth);
-		$("#slider-content").css("margin-left", offset);
-
-		titlePicture();
-
-		var liActive = $("li.count").eq(counter);
-		$(liActive).addClass("active");
+		next();
 	});
-
 	$("#slider-prev").click(function() {
-		var liWidth = $("#slider-content .active li").width();
-		var sLength = $("#slider-content .active li").length;
-		if (counter > 0) {
-			counter--;
-			$("li.count.active").removeClass("active");
-			if (loop === false && counter === 0) {
-				$("#slider-prev").addClass("disabled");
-			}
-			if (counter < sLength - 1) {
-				$("#slider-next").removeClass("disabled");
-			}
-		} else if (loop === false) {
-			return false;
-		} else {
-			counter = sLength - 1;
-			$("li.count.active").removeClass("active");
+		previous();
+	});
+}
+
+function previous() {
+	var liWidth = $("#slider-content .active li").width();
+	var sLength = $("#slider-content .active li").length;
+	if (counter > 0) {
+		counter--;
+		$("li.count.active").removeClass("active");
+		if (loop === false && counter === 0) {
+			$("#slider-prev").addClass("disabled");
 		}
-		var offset = -(counter * liWidth);
-		$("#slider-content").css("margin-left", offset);
+		if (counter < sLength - 1) {
+			$("#slider-next").removeClass("disabled");
+		}
+	} else if (loop === false) {
+		return false;
+	} else {
+		counter = sLength - 1;
+		$("li.count.active").removeClass("active");
+	}
+	var offset = -(counter * liWidth);
+	$("#slider-content").css("margin-left", offset);
 
-		titlePicture();
+	titlePicture();
 
-		var liActive = $("li.count").eq(counter);
-		$(liActive).addClass("active");
-	});
+	var liActive = $("li.count").eq(counter);
+	$(liActive).addClass("active");
+}
 
-	$(window).resize(function() {
-		positionReset();
-		positionReset();
-	});
+function next() {
+	var liWidth = $("#slider-content .active li").width();
+	var sLength = $("#slider-content .active li").length;
+	if (counter < sLength - 1) {
+		counter++;
+		$("li.count.active").removeClass("active");
+		if (loop === false && counter === sLength - 1) {
+			$("#slider-next").addClass("disabled");
+		}
+		if (counter > 0) {
+			$("#slider-prev").removeClass("disabled");
+		}
+	} else if (loop === false) {
+		return false;
+	} else {
+		counter = 0;
+		$("li.count.active").removeClass("active");
+	}
+	var offset = -(counter * liWidth);
+	$("#slider-content").css("margin-left", offset);
+
+	titlePicture();
+
+	var liActive = $("li.count").eq(counter);
+	$(liActive).addClass("active");
 }
 
 function sliderCounterInit() {
@@ -150,7 +150,6 @@ function sliderCounterInit() {
 	$("#counter-container li:first-child").addClass("active");
 
 	$("#title-pict").text($("#slider-content .active li:first-child").find("img").attr("alt"));
-
 }
 
 function quickAccess() {
@@ -181,7 +180,6 @@ function quickAccess() {
 		} else {
 			$("#slider-next").removeClass("disabled");
 		}
-
 	});
 }
 
@@ -252,3 +250,21 @@ function preload2() {
 	$("#slider-content").fadeIn();
 }
 
+function swipeTouch() {
+	if (swipe === true) {
+		$(document).on('touchstart', 'body', function(e) {
+			xStart = e.originalEvent.touches[0].pageX;
+		});
+		$(document).on('touchmove', 'body', function(e) {
+			xEnd = e.originalEvent.touches[0].pageX;
+		});
+		$(document).on('touchend', 'body', function(event) {
+			var xDif = xStart - xEnd;
+			if (xDif < -100) {
+				previous();
+			} else if (xDif > 100) {
+				next();
+			}
+		});
+	}
+}
