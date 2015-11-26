@@ -140,7 +140,7 @@ function next() {
 function sliderCounterInit() {
 	$('footer').empty();
 	sLength = $("#slider-content .active li").length;
-	$("footer").append('<div id="title-pict"></div>')
+	$("footer").append('<div id="title-pict"></div>');
 	$("footer").append("<ul id='counter-container'></ul>");
 	for ( n = 1; n <= sLength; n++) {
 		var tooltipPictSrc = $("#slider-content .active li").eq(n - 1).find("img").attr("src");
@@ -257,13 +257,20 @@ function swipeTouch() {
 		});
 		$(document).on('touchmove', 'body', function(e) {
 			xEnd = e.originalEvent.touches[0].pageX;
+
 		});
 		$(document).on('touchend', 'body', function(event) {
-			var xDif = xStart - xEnd;
-			if (xDif < -100) {
-				previous();
-			} else if (xDif > 100) {
-				next();
+			if (xEnd != 0) {
+				var xDif = xStart - xEnd;
+
+				if (xDif < -100) {
+					previous();
+				} else if (xDif > 100) {
+					next();
+				} else {
+					return false;
+				}
+				xEnd = 0;
 			}
 		});
 	}
