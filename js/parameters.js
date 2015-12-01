@@ -5,4 +5,6 @@ tooltips = true;
 tooltipsMiniatures = true;
 tooltipsName = true;
 loop = false;
-swipe = true; 
+swipe = true;
+ajax = true;
+dirForAjax = "img/content";

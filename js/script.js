@@ -1,4 +1,5 @@
 function multiSlidersInit() {
+
 	if ($("#slider-content ul").length > 1) {
 		multiSliders = true;
 		nbSliders = $("#slider-content ul").length + 1;
@@ -13,6 +14,7 @@ function multiSlidersInit() {
 		multiSliders = false;
 		$("#slider-content ul").addClass("active");
 	}
+
 }
 
 function sliderPosition() {
@@ -271,6 +273,34 @@ function swipeTouch() {
 					return false;
 				}
 				xEnd = 0;
+			}
+		});
+	}
+}
+
+function ajaxLoading() {
+	if (ajax === true) {
+
+		myArray = new Array();
+		$.getJSON('php/scanYourDir.php', function(data) {
+
+			var dirTree = data;
+
+			var dirTreeLength = Object.keys(dirTree).length;
+
+			if (dirTreeLength > 1) {
+				$("nav").addClass("active");
+				$("p.menu-control").addClass("active");
+			}
+			for (var folder in dirTree) {
+				if (dirTree[folder].length > 0) {
+					$("#nav-list").append("<li><a href='#" + folder + "'>" + folder + "</a></li>");
+					$("#slider-content").append("<ul id='" + folder + "'></ul>");
+					for ( n = 0; n < dirTree[folder].length; n++) {
+						alert("img src='" + dirForAjax + "/" + folder + "/" + dirTree[folder][n] + " alt=");
+						$("ul#" + folder + "").append("<li><img src='" + dirForAjax + "/" + folder + "/" + dirTree[folder[n]] + " alt=" + dirTree[folder[n]] + "/></li>");
+					}
+				}
 			}
 		});
 	}

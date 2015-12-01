@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	preload1();
+	ajaxLoading();
 });
 
 $(window).load(function(){
