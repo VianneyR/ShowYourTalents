@@ -238,10 +238,15 @@ function navigation() {
 
 function resetCounter() {
 	counter = 0;
+	sLength = $("#slider-content .active li").length;
+
 	$("#slider-content").css("margin-left", 0);
 	if (loop === false) {
 		$("#slider-prev").addClass("disabled");
 		$("#slider-next").removeClass("disabled");
+	}
+	if ( slength = 1) {
+		$("#slider-next").addClass("disabled");
 	}
 }
 
@@ -287,11 +292,10 @@ function ajaxLoading() {
 		myArray = new Array();
 		var url = dirForAjax;
 		$.getJSON('php/scanYourDir.php', {
-			url : escape(url)
+			url : dirForAjax
 		}, function(data) {
-
+			console.log(data);
 			var dirTree = data;
-
 			var dirTreeLength = Object.keys(dirTree).length;
 
 			if (dirTreeLength > 1) {
@@ -300,17 +304,16 @@ function ajaxLoading() {
 			}
 			for (var folder in dirTree) {
 				if (dirTree[folder].length > 0) {
+					var folderId = folder.replace(/ /g, "_");
 					$("#nav-list").append("<li><a>" + folder + "</a></li>");
-					$("#slider-content").append("<ul id='" + folder + "'></ul>");
+					$("#slider-content").append("<ul id='" + folderId + "'></ul>");
 					for ( n = 0; n < dirTree[folder].length; n++) {
 						var file = dirTree[folder][n];
-						$("ul#" + folder + "").append("<li><img src='" + dirForAjax + "/" + folder + "/" + dirTree[folder][n] + "' alt='" + file + "'/></li>");
+						$("ul#" + folderId + "").append("<li><img src='" + dirForAjax + "/" + folder + "/" + dirTree[folder][n] + "' alt='" + file + "'/></li>");
 					}
+					$("#" + folderId + "").removeAttr("id");
 				}
 			}
-		}).error(function() {
-			alert("error");
-		}).complete(function() {
 			preload2();
 			multiSlidersInit();
 			sliderPosition();
@@ -321,6 +324,8 @@ function ajaxLoading() {
 			toggleNav();
 			navigation();
 			swipeTouch();
+		}).error(function() {
+			alert("error");
 		});
 	}
 }

@@ -21,7 +21,9 @@ function dirToArray($dir) {
    
    return $result; 
 }
-$url = $_GET["url"];
-echo json_encode(dirToArray('../img/content'), JSON_PRETTY_PRINT);
+$var = $_GET["url"];
+$url = "../".$var."";
+//echo json_encode($newUrl);
+echo json_encode(dirToArray($url), JSON_PRETTY_PRINT);
 
 ?>  

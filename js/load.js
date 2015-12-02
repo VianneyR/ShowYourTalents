@@ -23,4 +23,4 @@ $(window).resize(function() {
 	sliderPosition();
 	positionReset();
 	positionReset();
-}); 
+});
