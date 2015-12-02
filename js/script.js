@@ -1,15 +1,16 @@
 function multiSlidersInit() {
-
 	if ($("#slider-content ul").length > 1) {
 		multiSliders = true;
 		nbSliders = $("#slider-content ul").length + 1;
 
 		for ( n = 0; n < nbSliders; n++) {
 			$("#slider-content ul").eq(n - 1).attr('id', 'slider-' + n);
+			$("#nav-list li").eq(n - 1).find("a").attr('href', '#slider-' + n);
 		}
 		$("nav").addClass("active");
 		$("p.menu-control").addClass("active");
 		$("#slider-1").addClass("active");
+		$("#nav-list li").eq(0).addClass("active");
 	} else {
 		multiSliders = false;
 		$("#slider-content ul").addClass("active");
@@ -72,7 +73,7 @@ function positionReset() {
 
 function sliderControl() {
 	counter = 0;
-
+	var sLength = $("#slider-content .active li").length;
 	if (counter === 0 && loop === false) {
 		$("#slider-prev").addClass("disabled");
 	}
@@ -146,7 +147,7 @@ function sliderCounterInit() {
 	$("footer").append("<ul id='counter-container'></ul>");
 	for ( n = 1; n <= sLength; n++) {
 		var tooltipPictSrc = $("#slider-content .active li").eq(n - 1).find("img").attr("src");
-		var tooltipText = tooltipPictSrc.substr(24);
+		var tooltipText = $("#slider-content .active li").eq(n - 1).find("img").attr("alt");
 		$("#counter-container").append("<li class='count'><button id='count" + n + "'>" + n + "</button><div class='tooltip-counter'><img class='miniature' src='" + tooltipPictSrc + "'/><p>" + tooltipText + "</p></div></li>");
 	}
 	$("#counter-container li:first-child").addClass("active");
@@ -214,6 +215,7 @@ function toggleNav() {
 
 function navigation() {
 	$("nav a").click(function() {
+		$("#slider-content").removeClass("anim-slide");
 		var link = $(this).attr("href");
 		var targetSlider = $("#slider-content").find(link);
 
@@ -230,6 +232,7 @@ function navigation() {
 			resetCounter();
 			titlePicture();
 		}
+		$("#slider-content").addClass("anim-slide");
 	});
 }
 
@@ -282,7 +285,10 @@ function ajaxLoading() {
 	if (ajax === true) {
 
 		myArray = new Array();
-		$.getJSON('php/scanYourDir.php', function(data) {
+		var url = dirForAjax;
+		$.getJSON('php/scanYourDir.php', {
+			url : escape(url)
+		}, function(data) {
 
 			var dirTree = data;
 
@@ -294,14 +300,27 @@ function ajaxLoading() {
 			}
 			for (var folder in dirTree) {
 				if (dirTree[folder].length > 0) {
-					$("#nav-list").append("<li><a href='#" + folder + "'>" + folder + "</a></li>");
+					$("#nav-list").append("<li><a>" + folder + "</a></li>");
 					$("#slider-content").append("<ul id='" + folder + "'></ul>");
 					for ( n = 0; n < dirTree[folder].length; n++) {
-						alert("img src='" + dirForAjax + "/" + folder + "/" + dirTree[folder][n] + " alt=");
-						$("ul#" + folder + "").append("<li><img src='" + dirForAjax + "/" + folder + "/" + dirTree[folder[n]] + " alt=" + dirTree[folder[n]] + "/></li>");
+						var file = dirTree[folder][n];
+						$("ul#" + folder + "").append("<li><img src='" + dirForAjax + "/" + folder + "/" + dirTree[folder][n] + "' alt='" + file + "'/></li>");
 					}
 				}
 			}
+		}).error(function() {
+			alert("error");
+		}).complete(function() {
+			preload2();
+			multiSlidersInit();
+			sliderPosition();
+			sliderCounterInit();
+			sliderControl();
+			quickAccess();
+			sliderParameters();
+			toggleNav();
+			navigation();
+			swipeTouch();
 		});
 	}
 }
