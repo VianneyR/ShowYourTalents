@@ -172,9 +172,13 @@ p.menu-control{
 	max-width: 95%;
 }
 #slider-control {
+	display : none;
 	position: absolute;
 	top: 0.5em;
 	right: 0.5em;
+}
+#slider-control.active {
+	display : block;
 }
 #slider-control button:not(.disabled){
 	opacity : 0.5;
@@ -188,12 +192,20 @@ p.menu-control{
 }
 #wait {
 	position: absolute;
-	width: 150px;
-	height: 150px;
 	top: 50%;
 	left: 50%;
-	margin-top: -75px;
-	margin-left: -75px;
+	width: 200px;
+	height: 200px;
+	margin-top: -100px;
+	margin-left: -100px;
+	text-align : center;
+}
+#wait img{
+	width: 150px;
+	height: 150px;
+}
+#wait p{
+
 }
 li.count {
 	position: relative;
@@ -278,7 +290,16 @@ li.count .tooltip-counter:after {
 	height: 20px;
 	padding: 7px;
 }
-
+#loading-container{
+	position : fixed;
+	top : 3em;
+	width : 100%;
+}
+#loading-bar{
+	width : 0%;
+	height : 5px;
+	background-color : #F64B1C;
+}
 /*-------------------------------------------------------------------
  _______________________________TEST_______________________________
  ______________________________________________________________________*/

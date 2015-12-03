@@ -1,11 +1,12 @@
 $(document).ready(function() {
 	preload1();
+	textInit();
 	ajaxLoading();
 });
 
-$(window).load(function() {
-	if (ajax === false) {
+$(window).on("load", function() {
 		preload2();
+		if(ajax===false){
 		multiSlidersInit();
 		sliderPosition();
 		sliderCounterInit();
@@ -15,7 +16,7 @@ $(window).load(function() {
 		toggleNav();
 		navigation();
 		swipeTouch();
-	}
+		}
 });
 
 $(window).resize(function() {
