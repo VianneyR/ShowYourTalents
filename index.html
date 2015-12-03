@@ -30,10 +30,12 @@
 				<small id="author-date">Author - yy/mm/dd</small>
 				<p class="menu-control"><a href="#container" id="menu-trigger" title="Click to open/close the menu"><img src="img/design/menu.png" alt="menu"/></a></p>
 				<nav role="navigation">
-					<ul class="navbar" role="menubar">
-						<li class="active"><a href="#slider-1">Item nav 0</a></li>
-						<li><a href="#slider-2">Item nav 1</a></li>
-						<li><a href="#slider-3">Item nav 2</a></li>
+					<ul id="nav-list" class="navbar" role="menubar">
+						<!-- [ navigation items pattern if no Ajax
+						<li class="active"><a>Item nav 0</a></li>
+						<li><a>Item nav 1</a></li>
+						<li><a>Item nav 2</a></li>
+						-->
 					</ul>
 				</nav>
 				
@@ -43,43 +45,17 @@
 				<!-- [slider-wrap -->
 				<div id="slider-wrap">
 					<div id="slider-content" class="anim-slide">
+						<!-- [ list pattern if no Ajax
 						<ul>
 							<li>
-								<img src="img/content/indexSlider/1.jpg" alt="image 1"/>
+								<img src="img/content/folder/1.jpg" alt="image 1"/>
 							</li><li>
-								<img src="img/content/indexSlider/2.jpg" alt="image 2"/>
+								<img src="img/content/folder/2.jpg" alt="image 2"/>
 							</li><li>
-								<img src="img/content/indexSlider/3.jpg" alt="image 3"/>
-							</li><li>
-								<img src="img/content/indexSlider/4.jpg" alt="image 4"/>
-							</li><li>
-								<img src="img/content/indexSlider/5.jpg" alt="image 5"/>
-							</li><li>
-								<img src="img/content/indexSlider/6.jpg" alt="image 6"/>
-							</li><li>
-								<img src="img/content/indexSlider/7.jpg" alt="image 7"/>
+								<img src="img/content/folder/3.jpg" alt="image 3"/>
 							</li>
 						</ul>
-						<ul>
-							<li>
-								<img src="img/content/indexSlider/2.jpg" alt="image 2"/>
-							</li><li>
-								<img src="img/content/indexSlider/1.jpg" alt="image 1"/>
-							</li><li>
-								<img src="img/content/indexSlider/3.jpg" alt="image 3"/>
-							</li>
-						</ul>
-						<ul>
-							<li>
-								<img src="img/content/indexSlider/4.jpg" alt="image 4"/>
-							</li><li>
-								<img src="img/content/indexSlider/5.jpg" alt="image 5"/>
-							</li><li>
-								<img src="img/content/indexSlider/6.jpg" alt="image 6"/>
-							</li><li>
-								<img src="img/content/indexSlider/7.jpg" alt="image 7"/>
-							</li>
-						</ul>
+						-->
 					</div>
 				</div>
 				<!-- slider-wrap] -->
@@ -90,6 +66,11 @@
 			</div>
 			<!-- wrapper] -->
 			<div class="clear"> </div>
+			<div id="loading-container">
+				<div id="loading-bar">
+					
+				</div>
+			</div>
 			<footer role="banner">
 				
 			</footer>
